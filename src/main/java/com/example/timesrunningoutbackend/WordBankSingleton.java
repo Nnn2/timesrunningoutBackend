@@ -13,13 +13,13 @@ public class WordBankSingleton {
             instance.wordBank = new ArrayList<>();
 
             // String array containing 4 words.
-            String[] questions = {
+            String[] words = {
                     "Butterfly", "cup", "tea", "fire"
             };
 
             for (int i = 0; i < 4; i++) {
                 int id = i + 1;
-                String wordText = questions[i];
+                String wordText = words[i];
                 Word word = new Word(id, wordText);
                 instance.wordBank.add(word);
             }
@@ -37,4 +37,9 @@ public class WordBankSingleton {
     public void addWord(Word word) {
         wordBank.add(word);
     }
+
+    //getWords(int n) random number generator between 0 and length of wordbank,
+    //add it to list of int in a while loop going n times (check that there are no duplicates of indices)
+    //make a list in another loop from the indices in the previous list
+    
 }
