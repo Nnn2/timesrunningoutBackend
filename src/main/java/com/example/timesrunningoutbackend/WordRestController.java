@@ -18,12 +18,11 @@ public class WordRestController {
         return wordBank.getNwords(n);
     }
 
-    @PostMapping("/addWords")
-    public List<Word> addWords(List<String> words){
+    @PostMapping("/addWord")
+    public String addWord(String word){
         WordBankSingleton wordBank = WordBankSingleton.getInstance();
-        for (int i = 0; i < words.size(); i++) {
-            WordBankSingleton.addWord(words.get(i));
-        }
+        //for (int i = 0; i < words.size(); i++) {WordBankSingleton.addWord(words.get(i));}
+        wordBank.addWord(word);
         return null;
     }
 

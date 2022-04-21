@@ -3,6 +3,7 @@ import org.thymeleaf.util.ArrayUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class WordBankSingleton {
@@ -42,18 +43,21 @@ public class WordBankSingleton {
     //getWords(int n) random number generator between 0 and length of wordbank,
     //add it to list of int in a while loop going n times (check that there are no duplicates of indices)
     //make a list in another loop from the indices in the previous list
+    //TODO: for now shuffles the list and returns n first words, should return n random words without shuffling?
     public List<Word> getNwords(int n) {
         int i = 0;
-        int[] indices = new int[n];
-        Arrays.fill(indices, -1);
+        //int[] indices = new int[n];
+        //Arrays.fill(indices, -1);
         List<Word> words = new ArrayList<>();
+        Collections.shuffle(wordBank);
         while(i < n) {
-            int index = -1;
-            while(contains(indices,index)) {
-                index = (int) ((Math.random() * (wordBank.size())));
-            }
-            indices[i] = index;
-            words.add(wordBank.get(index));
+            //int index = -1;
+            //while(contains(indices,index)) {
+            //    index = (int) ((Math.random() * (wordBank.size())));
+            //}
+            //indices[i] = index;
+            //words.add(wordBank.get(index));
+            words.add(wordBank.get(i));
             i++;
         }
         return words;
