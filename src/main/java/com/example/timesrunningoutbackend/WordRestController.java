@@ -2,7 +2,6 @@ package com.example.timesrunningoutbackend;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 @RestController
 public class WordRestController {
@@ -21,12 +20,10 @@ public class WordRestController {
     @PostMapping("/addWord")
     public String addWord(String word){
         WordBankSingleton wordBank = WordBankSingleton.getInstance();
-        //for (int i = 0; i < words.size(); i++) {WordBankSingleton.addWord(words.get(i));}
         wordBank.addWord(word);
-        return null;
+        return word;
     }
 
-    //change this method to get one word for the tiebreaker (use Word object throughout app to make sure we're not taking a word already part of game...?)
     @RequestMapping("/word/{Id}")
     public Word getAttr(@PathVariable(value="Id") int id) {
         WordBankSingleton wordBank = WordBankSingleton.getInstance();
